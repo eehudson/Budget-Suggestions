@@ -10,7 +10,7 @@ Features:
 6. Time frame/Availability 
 
 APIs we'll need:
-- google maps: get route data
+- google maps: get route data Status: Completed. 
 - uber/lyft/mbta
 - OpenTable
 - SeatGeek
