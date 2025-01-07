@@ -1,8 +1,6 @@
 import requests
 import json
 
-import requests
-
 # Your MBTA API Key
 API_KEY = "your_api_key_here"     #DID NOT PUT API KEY IN THE CODE
 
