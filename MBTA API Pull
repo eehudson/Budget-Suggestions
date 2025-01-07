@@ -1,11 +1,63 @@
 import requests
 import json
 
-def get_MBTA_data():
-    url = "https://api-v3.mbta.com/docs/swagger/swagger.json"   #Gets MBTA V3 API data
-    response = requests.get(url)           #Will return a response code for success, failure, or alerts
+import requests
 
+# Your MBTA API Key
+API_KEY = "your_api_key_here"     #DID NOT PUT API KEY IN THE CODE
 
-    return response
+# Base URL for the MBTA API
+BASE_URL = "https://api-v3.mbta.com"
 
-#I don't think this will actually do what I want it to, but it is currently a semi-stub
+def get_mbta_routes():     
+    """
+    Fetches a list of all MBTA routes.
+    """
+    endpoint = f"{BASE_URL}/routes"
+    headers = {
+        "x-api-key": API_KEY
+    }
+
+    try:
+        response = requests.get(endpoint, headers=headers)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        data = response.json()
+        return data["data"]
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching routes: {e}")
+        return None
+
+def get_predictions_for_stop(stop_id):
+    """
+    Fetches real-time predictions for a specific stop on the MBTA.
+    """
+    endpoint = f"{BASE_URL}/predictions"
+    params = {
+        "filter[stop]": stop_id
+    }
+    headers = {
+        "x-api-key": API_KEY
+    }
+
+    try:
+        response = requests.get(endpoint, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        return data["data"]
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching predictions: {e}")
+        return None
+
+if __name__ == "__main__":
+    stop_id = "place-north"  # Replace with the desired stop ID
+    predictions = get_predictions_for_stop(stop_id)
+    if predictions:
+        for prediction in predictions:
+            print(f"Trip: {prediction['relationships']['trip']['data']['id']}, Arrival: {prediction['attributes']['arrival_time']}")
+
+if __name__ == "__main__":
+    routes = get_mbta_routes()
+    if routes:
+        for route in routes:
+            print(f"Route ID: {route['id']}, Name: {route['attributes']['long_name']}")
+
