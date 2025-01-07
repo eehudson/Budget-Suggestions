@@ -2,7 +2,7 @@ import requests
 #import json
 
 # Your MBTA API Key
-API_KEY = "cc2b22c8881c42279e186089b011184e"     #DID NOT PUT API KEY IN THE CODE
+API_KEY = "none_of_your_business"     #DID NOT PUT API KEY IN THE CODE
 
 # Base URL for the MBTA API
 BASE_URL = "https://api-v3.mbta.com"
