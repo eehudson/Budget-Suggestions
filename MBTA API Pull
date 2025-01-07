@@ -1,8 +1,8 @@
 import requests
-import json
+#import json
 
 # Your MBTA API Key
-API_KEY = "your_api_key_here"     #DID NOT PUT API KEY IN THE CODE
+API_KEY = "cc2b22c8881c42279e186089b011184e"     #DID NOT PUT API KEY IN THE CODE
 
 # Base URL for the MBTA API
 BASE_URL = "https://api-v3.mbta.com"
@@ -47,7 +47,7 @@ def get_predictions_for_stop(stop_id):
         return None
 
 if __name__ == "__main__":
-    stop_id = "place-north"  # Replace with the desired stop ID
+    stop_id = "place-alfcl" # Replace with the desired stop ID #This is the id for alewife. The GPT code for programmatically searching the id numbers was difficult. Might have to make a new dictionary of station names
     predictions = get_predictions_for_stop(stop_id)
     if predictions:
         for prediction in predictions:
@@ -57,5 +57,7 @@ if __name__ == "__main__":
     routes = get_mbta_routes()
     if routes:
         for route in routes:
-            print(f"Route ID: {route['id']}, Name: {route['attributes']['long_name']}")
-
+#            print(f"Route ID: {route['id']}, Name: {route['attributes']['long_name']}")
+#Remove above comment to bring the full data back out. Would produce an error message if I commented out
+#the whole thing so I just commented out the print
+             x = 1+1          
