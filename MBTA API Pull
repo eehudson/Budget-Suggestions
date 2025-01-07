@@ -1,0 +1,11 @@
+import requests
+import json
+
+def get_MBTA_data():
+    url = "https://api-v3.mbta.com/docs/swagger/swagger.json"   #Gets MBTA V3 API data
+    response = requests.get(url)           #Will return a response code for success, failure, or alerts
+
+
+    return response
+
+#I don't think this will actually do what I want it to, but it is currently a semi-stub
