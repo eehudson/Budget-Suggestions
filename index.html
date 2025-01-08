@@ -12,10 +12,10 @@
         <h1> Welcome to 3rd Place </h1>
 
         <div>
-            <div id="searchOptions">
-                <div class="searchOptionRow">
-                    <label for="budget" class="form-label">Budget</label>
-                    <select class="form-select" id="budget" aria-label="Budget">
+            <div id="searchOptions" style="display: flex;">
+                <div class="searchOptionRow" id="budget">
+                    <div class="label">Budget</div>
+                    <select class="form-select" aria-div="Budget">
                         <option selected>Any</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
@@ -24,10 +24,10 @@
                     </select>
                 </div>
                 
-                <div class="searchOptionRow">
-                    <label for="type" class="form-label">Type</label>
+                <div class="searchOptionRow" id="type">
+                    <div class="label">Type</div>
                     
-                    <select class="form-select" id="type" aria-label="Type">
+                    <select class="form-select"  aria-div="Type">
                         <option selected>Any</option>
                         <option value="concert">Concert</option>
                         <option value="park">Park</option>
@@ -37,21 +37,23 @@
                 </div>
                 
 
-                <div class="searchOptionRow">
-                    <label for="date" class="form-label">Date</label>
-                    <input type="date" class="" id="date" >
+                <div class="searchOptionRow" id="date" >
+                    <div class="label">Date</div>
+                    <input type="date" class="" placeholder="MM/DD/YYYY">
                 </div>
                 
 
-                <div class="searchOptionRow">
-                    <label for="time" class="form-label">Time</label>
-                    <input type="time" id="time">
+                <div class="searchOptionRow" id="time">
+                    <div class="label" >Time</div>
+                    <input type="time" placeholder="HH:MM">
                 </div>
                 
 
             </div>
-            <button onclick="GetSearchParams($('#searchOptions'))">Search</button>
+            <button onclick="SearchEvents($('#searchOptions'))">Search</button>
         </div>
+
+        <div id="results"></div>
     </body>
 </html>
 

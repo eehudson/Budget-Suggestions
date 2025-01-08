@@ -1,3 +1,10 @@
 body{ margin: 20px;}
 
-.searchOptionRow{display: flex;}
+.searchOptionRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+}
+
+div.label{padding-right: 5px;}
