@@ -21,6 +21,7 @@ function GetSearchParams(searchOptionsDiv){
 
 function PopulateResults(resultsData){
     // given the JSON data, create results list
+    $("#results").empty()
     resultsData.forEach((idx,element) => {
         var resultsDiv = CreateResultsDiv(idx,element);
         $("#results").append(resultsDiv)
