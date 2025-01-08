@@ -72,7 +72,7 @@ def is_open_at_time(periods, target_datetime):
     return False
 
 # Example usage
-api_key = "AIzaSyCFvjCyYR0bSER_U0w0XlkVZcTt6_aY1zo"
+api_key = 
 location = "42.3601,-71.0589"  # Boston, MA
 radius = 5000  # 5km
 minprice = 0  # Free
