@@ -1,13 +1,16 @@
-
 import requests
 
-# Replace this with your Yelp API key
-API_KEY = "XJB-mNIW73S4hFLWWKunMcDGnVG60CZxpbe3kLZUXqYnePH1ThBW5VaBne4NLCj7mw6JcrC3mnRIFMIoVhA1WUQpwdQESh6xfx4ON8n4U-yNlKS_Tvbl-FacYol9Z3Yx"
+# Ask user for Yelp API key
+def get_api_key():
+    API_KEY = input("Enter your Yelp API key: ")
+    return API_KEY
+
+API_Key = get_api_key()
 
 # Base URL for Yelp API
 YELP_API_URL = "https://api.yelp.com/v3/businesses/search"
 
-def get_boston_restaurants(budget_min, budget_max, radius):
+def get_boston_restaurants(budget_min, budget_max):
     # Map budget range to Yelp price levels
     if budget_max <= 10:
         price = "1"  # $
@@ -17,6 +20,9 @@ def get_boston_restaurants(budget_min, budget_max, radius):
         price = "3"  # $$$
     else:
         price = "4"  # $$$$
+
+    # Radius is set to the maximum allowed by Yelp API
+    radius = 40000  # Maximum: 40,000 meters (~24.85 miles)
 
     # API parameters
     params = {
@@ -29,7 +35,7 @@ def get_boston_restaurants(budget_min, budget_max, radius):
 
     # API headers with authorization
     headers = {
-        "Authorization": f"Bearer {API_KEY}"
+        "Authorization": f"Bearer {API_Key}"
     }
 
     # Send request to Yelp API
@@ -47,7 +53,7 @@ def get_boston_restaurants(budget_min, budget_max, radius):
         else:
             print("No restaurants found for your preferences.")
     else:
-        print(f"Error: Unable to fetch data ({response.status_code}).")
+        print(f"Error: Unable to fetch data ({response.status_code}). Response: {response.text}")
 
 # User input for budget range
 try:
@@ -57,10 +63,7 @@ try:
     if budget_min > budget_max:
         print("Invalid input: Minimum budget cannot be greater than maximum budget.")
     else:
-        # Define radius in meters (e.g., 5,000 meters = 3 miles)
-        radius = 5000
-
         # Get Boston restaurant suggestions
-        get_boston_restaurants(budget_min, budget_max, radius)
+        get_boston_restaurants(budget_min, budget_max)
 except ValueError:
     print("Please enter valid numbers for the budget range.")
