@@ -4,51 +4,20 @@
         <title>Third Place</title>
         <link rel="stylesheet" type=“text/css” href="styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="index.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1> Welcome to Third Place </h1>
+        <h1> Welcome to 3rd Place </h1>
 
         <div>
-            <button type="button" class="btn btn-primary" onclick=""> Plan an Event </button>  
-            <div id="event-options">
+            <div id="search">
                 <form>
-                    <div class="mb-3" id="eventDescription">
-                      <label for="eventDescriptionInput" class="form-label">Describe your event</label>
-                      <input type="text" class="form-control" id="eventDescriptionInput" aria-describedby="eventDescriptionExample">
-                      <div id="eventDescriptionExample" class="form-text">Example: I'm looking for a relaxed event for 4 people </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="What would you like to do?" aria-describedby="searchButton">
+                        <button class="btn btn-outline-secondary" type="button" id="searchButton" onclick="parseInput(this)"><i class="bi bi-search"></i></button>
                     </div>
-                    <div class="mb-3" id="eventBudget">
-                      <label for="eventBudgetInput" class="form-label">Budget</label>
-                      <input type="input" class="form-control" id="eventBudgetInput">
-                    </div>
-                    <div class="mb-3" id="eventLocation">
-                      <input type="text" class="" id="eventLocationInput">
-                      <label class="" for="eventLocationInput">Location</label>
-                    </div>
-                    <div class="mb-3" id="eventDate">
-                        <input type="text" class="" id="eventDateInput">
-                        <label class="" for="eventDateInput">Date</label>
-                    </div>
-                    <div class="mb-3" id="eventTime">
-                        <input type="text" class="" id="eventTimeInput">
-                        <label class="" for="eventTimeInput">Time</label>
-                    </div>
-                    <div class="mb-3" id="eventSize">
-                        <input type="text" class="" id="eventSizeInput">
-                        <label class="" for="eventSizeInput">Group Size</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    
                 </form>
-
-            </div>
-
-            <div id="plan-event-results">
-              <div class="">
-                <div class="result-tile" result-id="">
-
-                </div>
-
-              </div>
 
             </div>
         </div>
